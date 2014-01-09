@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>opensourcephysics</groupId>
+  <artifactId>tracker</artifactId>
+  <version>4.83</version>
+  <packaging>jar</packaging>
+
+  <name>tracker</name>
+  <description>A free video analysis and modeling tool for physics education</description>
+  <url>http://www.cabrillo.edu/~dbrown/tracker/</url>
+  <organization>
+    <name>Open Source Physics</name>
+    <url>http://www.opensourcephysics.org/</url>
+  </organization>
+  <licenses>
+	<license>
+	  <name>GNU General Public License (GPL) v3</name>
+	  <url>http://www.gnu.org/licenses/gpl.txt</url>
+	</license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>db</id>
+      <name>Douglas Brown</name>
+      <email>dobrown@cabrillo.edu</email>
+      <organization>Cabrillo College (emeritus)</organization>
+      <organizationUrl>http://www.cabrillo.edu/~dbrown/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>wc</id>
+      <name>Wolfgang Christian</name>
+      <email>wochristian@davidson.edu</email>
+      <organization>Davidson College</organization>
+      <organizationUrl>http://www.phy.davidson.edu/FacHome/wc/Welcome.htm</organizationUrl>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+    </developer>
+  </developers>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
+  </properties>
+
+  <dependencies>
+	<dependency> 
+		<groupId>xuggle</groupId> 
+		<artifactId>xuggle-xuggler</artifactId> 
+		<version>5.4</version> 
+		<scope>compile</scope>
+	</dependency>
+  </dependencies>
+  
+  <repositories>
+  <repository>
+   <id>xuggle-repo</id>
+   <url>http://xuggle.googlecode.com/svn/trunk/repo/share/java</url>
+  </repository>
+ </repositories>
+  
+  <build> 
+	<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-jar-plugin</artifactId>
+			<version>2.4</version>
+			<configuration>
+			  <archive>
+				<manifest>
+					<mainClass>org.opensourcephysics.cabrillo.tracker.Tracker</mainClass>
+				</manifest>
+				<manifestEntries>
+					<Build-Date>${maven.build.timestamp}</Build-Date>
+				</manifestEntries>
+			  </archive>
+			</configuration>
+		</plugin>
+    </plugins>
+  </build>
+</project>
